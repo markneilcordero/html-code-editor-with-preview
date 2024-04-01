@@ -1,0 +1,47 @@
+<!Doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="./assets/output.css" rel="stylesheet">
+</head>
+<body class="bg-slate-100 font-mono">
+
+<button class="m-3 bg-lime-700 text-white mb-2 py-1 px-5" id="tryButton">Run</button>
+<div class="columns-1 md:columns-2 bg-white">
+    <div>
+        <textarea id="htmlCode" class="w-[100%] h-[90vh] border-4 border-double border-slate-300">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;HTML CSS JavaScript Sandbox&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+            
+<h1>Hello World!</h1>
+            
+&lt;/body&gt;
+&lt;/html&gt;
+        </textarea>
+    </div>
+    <div>
+        <iframe class="w-[100%] h-[100vh] border-4 border-double border-slate-300 md:h-[90vh]" id="preview"></iframe>
+    </div>
+</div>
+      
+<script>
+function updatePreview() {
+    const htmlCode = document.getElementById("htmlCode").value;
+    const previewFrame = document.getElementById("preview").contentDocument;
+    previewFrame.open();
+    previewFrame.write(htmlCode);
+    previewFrame.close();
+}
+document.getElementById("tryButton").addEventListener("click", updatePreview);
+updatePreview();
+</script>
+
+</body>
+</html>
